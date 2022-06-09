@@ -7,7 +7,7 @@ const AlquileresController = require('../controllers/AlquileresController');
 
 //Endpoint-function links
 router.get('/', AlquileresController.getAlquileres);
-router.post('/register', AlquileresController.postAlquilerRegister);
+router.post('/addAlquiler', AlquileresController.postAlquilerRegister);
 
 
 //Export
