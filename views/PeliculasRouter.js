@@ -7,7 +7,7 @@ const PeliculasController = require('../controllers/PeliculasController');
 
 //Endpoint-function links
 router.get('/', PeliculasController.getPeliculas);
-router.post('/addPelicula', PeliculasController.postPeliculaRegister);
+router.post('/addpelicula', PeliculasController.postPeliculaRegister);
 
 
 

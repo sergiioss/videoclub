@@ -1,10 +1,11 @@
 
 const { Alquiler } = require('../models/index');
 
-//UserController object declaration
-const AlquileresController = {};
 
-AlquileresController.getAlquileres = (req, res) => {
+//UserController object declaration
+const AlquilersController = {};
+
+AlquilersController.getAlquileres = (req, res) => {
     //Esta funcion llamada findAll es una funcion de Sequelize
     Alquiler.findAll()
     .then(data => {
@@ -13,14 +14,14 @@ AlquileresController.getAlquileres = (req, res) => {
     });
 };
 
-AlquileresController.postAlquilerRegister = async (req, res) => {
+AlquilersController.postAlquilerRegister = async (req, res) => {
 
     let usuarioId = req.body.usuarioId;
     let peliculaId = req.body.peliculaId;
     let precio = req.body.precio;
     let fecha_alquiler = req.body.fecha_alquiler;
     let fecha_devolucion = req.body.fecha_devolucion;
-
+    
     Alquiler.create({
         usuarioId: usuarioId,
         peliculaId: peliculaId,
@@ -35,8 +36,7 @@ AlquileresController.postAlquilerRegister = async (req, res) => {
         res.send(error);
     });
 
-
 };
 
 //Export
-module.exports = AlquileresController;
+module.exports = AlquilersController;
