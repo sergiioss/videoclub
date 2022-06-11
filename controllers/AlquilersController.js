@@ -5,6 +5,7 @@ const { Alquiler } = require('../models/index');
 //UserController object declaration
 const AlquilersController = {};
 
+
 AlquilersController.getAlquileres = (req, res) => {
     //Esta funcion llamada findAll es una funcion de Sequelize
     Alquiler.findAll()
@@ -13,7 +14,7 @@ AlquilersController.getAlquileres = (req, res) => {
         res.send(data)
     });
 };
-
+   
 AlquilersController.postAlquilerRegister = async (req, res) => {
 
     let usuarioId = req.body.usuarioId;

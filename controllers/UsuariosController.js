@@ -17,6 +17,23 @@ UsuariosController.getUsuarios = (req, res) => {
     });
 };
 
+UsuariosController.getDatosUsuario = (req, res) => {
+    //Esta funcion llamada findAll es una funcion de Sequelize
+    let nombreperfil = req.body.nombre;
+    
+        Usuario.findOne({
+        where : { nombre : nombreperfil}
+            
+        }).then(perfilUsuario => {
+            if(!perfilUsuario){
+                res.send('Ese Usuario no existe')
+            }else{
+                
+                res.send(`${perfilUsuario.id},${perfilUsuario.nombre},${perfilUsuario.dni},${perfilUsuario.email},${perfilUsuario.telefono}`)
+    }
+    });
+};
+
 UsuariosController.postUsuarioRegister = async (req, res) => {
 
     let nombre = req.body.nombre;
