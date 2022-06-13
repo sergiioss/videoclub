@@ -10,6 +10,7 @@ router.get('/', PeliculasController.getPeliculas);
 router.get('/filtrar', PeliculasController.getFiltroGenero);
 router.get('/edadpeliculas', PeliculasController.getEdadPeliculas);
 router.post('/addpelicula', PeliculasController.postPeliculaRegister);
+router.post('/letrapelicula', PeliculasController.postLetraPeliculas);
 
 
 

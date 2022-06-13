@@ -49,6 +49,24 @@ PeliculasController.getEdadPeliculas = async (req, res) => {
 
 };
 
+PeliculasController.postLetraPeliculas = async (req, res) => {
+
+    let letraPelicula = req.body.titulo
+
+    let consulta = `SELECT titulo, duracion FROM Peliculas WHERE titulo LIKE '${letraPelicula}%'`;
+
+    let resultado = await Pelicula.sequelize.query(consulta, {
+        type: Pelicula.sequelize.QueryTypes.SELECT
+    });
+
+    if(resultado != 0){
+        res.send(resultado);
+    }else {
+        res.send("Tu búsqueda es estúpida y no trae nada");
+    };
+};
+
+
 
 PeliculasController.postPeliculaRegister = async (req, res) => {
 
