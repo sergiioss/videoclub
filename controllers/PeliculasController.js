@@ -13,6 +13,43 @@ PeliculasController.getPeliculas = (req, res) => {
     });
 };
 
+PeliculasController.getFiltroGenero = (req, res) => {
+    let generoPelicula = req.body.genero
+
+    Pelicula.findAll({
+    where : { genero : generoPelicula}
+
+    }).then(listadoPeliculas => {
+
+        if(!listadoPeliculas){
+            res.send('Ese genero no existe');
+
+        }else{
+            res.send(listadoPeliculas);
+        };
+    });
+};
+
+PeliculasController.getEdadPeliculas = async (req, res) => {
+    
+    let mayorEdad = req.body.edad_minima;
+
+    let pelisEdad = `SELECT * FROM videoclub.Peliculas WHERE (edad_minima <= ${mayorEdad});`;
+
+    let resultado = await Pelicula.sequelize.query(pelisEdad, {
+        type: Pelicula.sequelize.QueryTypes.SELECT
+    });
+
+    if(resultado != 0){
+        res.send(resultado);
+    }else {
+        res.send("Tu búsqueda es estúpida y no trae nada");
+    };
+
+
+};
+
+
 PeliculasController.postPeliculaRegister = async (req, res) => {
 
     let titulo = req.body.titulo;

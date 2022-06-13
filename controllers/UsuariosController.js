@@ -10,7 +10,11 @@ const UsuariosController = {};
 
 UsuariosController.getUsuarios = (req, res) => {
     //Esta funcion llamada findAll es una funcion de Sequelize
-    Usuario.findAll()
+    Usuario.findAll({
+        attributes:{
+            exclude: ['password','createdAt','updatedAt']
+        }
+    })
     .then(data => {
     
         res.send(data)
@@ -83,9 +87,14 @@ UsuariosController.postUsuarioRegister = async (req, res) => {
                     let loginOKmessage = `Welcome again ${busquedaUsuario.nombre}`
                     res.json({
                         loginOKmessage,
-                        user: busquedaUsuario,
+                        user: {
+                            nombre : busquedaUsuario.nombre,
+                            dni : busquedaUsuario.dni
+                        },
                         token: token
                     })
+                }else{
+                    res.send('El user o el pass no es correcto')
                 };
             };
     
