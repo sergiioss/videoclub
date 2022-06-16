@@ -21,12 +21,12 @@ UsuariosController.getUsuarios = (req, res) => {
     });
 };
 
-UsuariosController.getDatosUsuario = (req, res) => {
+UsuariosController.postDatosUsuario = (req, res) => {
     //Esta funcion llamada findAll es una funcion de Sequelize
-    let nombreperfil = req.body.nombre;
+    let nombreperfil = req.body.id;
     
         Usuario.findOne({
-        where : { nombre : nombreperfil}
+        where : { id : nombreperfil}
             
         }).then(perfilUsuario => {
             if(!perfilUsuario){
@@ -45,13 +45,15 @@ UsuariosController.postUsuarioRegister = async (req, res) => {
     let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds));
     let email = req.body.email;
     let telefono = req.body.telefono;
+    let admin = req.body.admin;
 
     Usuario.create({
         nombre: nombre,
         dni: dni,
         password: password,
         email: email,
-        telefono: telefono
+        telefono: telefono,
+        admin: admin
         
     }).then(usuario => {
         res.send(`${usuario.nombre}, you have been added succesfully`);
@@ -60,6 +62,30 @@ UsuariosController.postUsuarioRegister = async (req, res) => {
         res.send(error);
     });
 
+};
+
+UsuariosController.putModificarPerfil = async (req, res) => {
+    let identidad = req.body.id
+    let nombre = req.body.nombre;
+    let email = req.body.email;
+    let telefono = req.body.telefono;
+
+    Usuario.findOne({
+        where : {id : identidad},
+
+    }).then(perfilUsuario => {
+        if(!perfilUsuario){
+            res.send('Ese Usuario no existe')
+        }else{
+            console.log('hola');
+            perfilUsuario.update({
+                nombre : nombre,
+                email : email,
+                telefono : telefono
+            })
+            res.send(perfilUsuario);
+        }
+    });
 };
 
     UsuariosController.loginUsuario = (req, res) => {

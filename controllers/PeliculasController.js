@@ -14,7 +14,7 @@ PeliculasController.getPeliculas = (req, res) => {
 };
 
 PeliculasController.getFiltroGenero = (req, res) => {
-    let generoPelicula = req.body.genero
+    let generoPelicula = req.params.genero
 
     Pelicula.findAll({
     where : { genero : generoPelicula}
@@ -32,7 +32,7 @@ PeliculasController.getFiltroGenero = (req, res) => {
 
 PeliculasController.getEdadPeliculas = async (req, res) => {
     
-    let mayorEdad = req.body.edad_minima;
+    let mayorEdad = req.params.edad_minima;
 
     let pelisEdad = `SELECT * FROM videoclub.Peliculas WHERE (edad_minima <= ${mayorEdad});`;
 
@@ -51,9 +51,9 @@ PeliculasController.getEdadPeliculas = async (req, res) => {
 
 PeliculasController.postLetraPeliculas = async (req, res) => {
 
-    let letraPelicula = req.body.titulo
+    let letraPelicula = req.body.titulo;
 
-    let consulta = `SELECT titulo, duracion FROM Peliculas WHERE titulo LIKE '${letraPelicula}%'`;
+    let consulta = `SELECT titulo, duracion FROM Peliculas WHERE titulo LIKE '%${letraPelicula}%'`;
 
     let resultado = await Pelicula.sequelize.query(consulta, {
         type: Pelicula.sequelize.QueryTypes.SELECT

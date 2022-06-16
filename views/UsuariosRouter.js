@@ -8,9 +8,10 @@ const UsuariosController = require('../controllers/UsuariosController');
 
 //Endpoint-function links
 router.get('/', auth, UsuariosController.getUsuarios);
-router.get('/perfil', auth, UsuariosController.getDatosUsuario);
+router.post('/perfil', auth, UsuariosController.postDatosUsuario);
 router.post('/register', UsuariosController.postUsuarioRegister);
 router.post('/login', UsuariosController.loginUsuario);
+router.put('/modificarperfil/:id', auth, UsuariosController.putModificarPerfil);
 
 
 //Export
