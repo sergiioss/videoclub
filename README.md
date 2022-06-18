@@ -5,7 +5,7 @@
 <br>
 <img src="/img/relaciones.png"><br>
 El concepto del proyecto se basa en el Modelo Vista Controlador (Mvc)<br>
-- A continuacion explicamos los endpoints:<br>
+A continuacion explicamos los endpoints:<br>
 <h3><p>Usuarios</p></h3>
 <h5>get(usuarios/)</h5> Este endpoint busca todos los usuarios que hay creados, excluyendo los campos password, updatedAt y createdAt. Ademas necesita un token (autentificacion) para poder realizarlo.<br>
 <h5>post(usuarios/perfil)</h5> Este endpoint mediante la id del usuario te muestra sus datos ( id,nombre,dni,email y telefono)<br>
@@ -24,3 +24,4 @@ El concepto del proyecto se basa en el Modelo Vista Controlador (Mvc)<br>
 <h5>get(alquileres/veralquiler/:id)</h5>Este endpoint ve el alquiler de una persona haciendo un salto en las tablas y mostrando los campos Nombre Pelicula, Nombre Cliente, Fecha Alquiler y Fecha Devolucion.<br>
 <h5>post(alquileres/addalquiler)</h5>Este endpoint crea un alquiler pero necesita token.<br>
 </p>
+
