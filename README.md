@@ -1,5 +1,5 @@
 <p align="center">
-<img src="img/gekkhub.png"></p>
+</p>
 <h2 align="center">Videoclub</h2>
 <p>Se realiza un pequeño CRUD de un videoclub en sequelize. Hay 3 tablas y las relaciones son muchos a muchos.<br>
 <br>
