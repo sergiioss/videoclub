@@ -8,8 +8,8 @@ El concepto del proyecto se basa en el Modelo Vista Controlador (Mvc)<br>
 - A continuacion explicamos los endpoints:<br>
 <h3><p>Usuarios</p></h3>
 - get(usuarios/) Este endpoint busca todos los usuarios que hay creados, excluyendo los campos password, updatedAt y createdAt. Ademas necesita un token (autentificacion) para poder realizarlo.<br>
-- <h5>post(usuarios/perfil)</h5> Este endpoint mediante la id del usuario te muestra sus datos ( id,nombre,dni,email y telefono)<br>
-- <h5>post(usuarios/register)</h5> Este endpoint registra un usuario nuevo. No te deja registrar un usuario si se dejan campos en blanco y tampoco te dejaria crearlo si el dni,email o telefono ya estan en la base de datos.Tambien tienes la opcion de crear como admin el usuario y en caso de que no se complete ese campo aparecera como NO admin.<br>
+<h5>post(usuarios/perfil)</h5> Este endpoint mediante la id del usuario te muestra sus datos ( id,nombre,dni,email y telefono)<br>
+<h5>post(usuarios/register)</h5> Este endpoint registra un usuario nuevo. No te deja registrar un usuario si se dejan campos en blanco y tampoco te dejaria crearlo si el dni,email o telefono ya estan en la base de datos.Tambien tienes la opcion de crear como admin el usuario y en caso de que no se complete ese campo aparecera como NO admin.<br>
 - <h5>post(usuarios/login)</h5> Este endpoint te logueas con tu usuario que previamente ya registraste y te crea un token para acceder a determinados endpoints.<br>
 - <h5>put(usuarios/modificarperfil/:id)</h5> Este endpoint sirve para modificar los campos del usuario, nombre, email o telefono y se necesita token.<br>
 <h3>Peliculas</h3>
@@ -24,7 +24,3 @@ El concepto del proyecto se basa en el Modelo Vista Controlador (Mvc)<br>
 - <h5>get(alquileres/veralquiler/:id)</h5>Este endpoint ve el alquiler de una persona haciendo un salto en las tablas y mostrando los campos Nombre Pelicula, Nombre Cliente, Fecha Alquiler y Fecha Devolucion.<br>
 - <h5>post(alquileres/addalquiler)</h5>Este endpoint crea un alquiler pero necesita token.<br>
 </p>
-<<<<<<< HEAD
-=======
-<h5><p>Proyecto realizado en HTML, CSS y Javascript.</p></h5>
->>>>>>> e021c31cf242dd70eae69de9dcad8bd7908e1419
