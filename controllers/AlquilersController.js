@@ -40,7 +40,6 @@ AlquilersController.getAlquilerId = async (req, res) => {
 
 };
 
-
 AlquilersController.postAlquilerRegister = async (req, res) => {
 
     let usuarioId = req.body.usuarioId;

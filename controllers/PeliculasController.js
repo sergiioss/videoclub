@@ -62,11 +62,29 @@ PeliculasController.postLetraPeliculas = async (req, res) => {
     if(resultado != 0){
         res.send(resultado);
     }else {
-        res.send("Tu búsqueda es estúpida y no trae nada");
+        res.send("No existe esa pelicula");
     };
+
 };
 
+PeliculasController.borrar = async (req, res) => {
+    let idpelicula = req.params.id;
 
+        Pelicula.destroy({
+        where : {id : idpelicula},
+
+    }).then( peliculaborrada => {
+
+        if(!peliculaborrada){
+            res.send("Esta pelicula no existe");
+        }else {
+            res.send("La pelicula ha sido borrada");
+        };
+
+    }).catch((error) => {
+       res.send(error);
+});
+};
 
 PeliculasController.postPeliculaRegister = async (req, res) => {
 
@@ -75,7 +93,6 @@ PeliculasController.postPeliculaRegister = async (req, res) => {
     let edad_minima = req.body.edad_minima;
     let genero = req.body.genero;
     
-
     Pelicula.create({
         titulo: titulo,
         duracion: duracion,
@@ -88,8 +105,6 @@ PeliculasController.postPeliculaRegister = async (req, res) => {
     }).catch((error) => {
         res.send(error);
     });
-
-
 };
 
 //Export

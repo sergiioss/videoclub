@@ -1,6 +1,6 @@
 
 const { Usuario } = require('../models/index');
-
+const funcionesBasicas = require('../funcionesBasicas');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 let authConfig = require('../config/auth');
@@ -47,25 +47,51 @@ UsuariosController.postUsuarioRegister = async (req, res) => {
     let telefono = req.body.telefono;
     let admin = req.body.admin;
 
-    Usuario.create({
-        nombre: nombre,
-        dni: dni,
-        password: password,
-        email: email,
-        telefono: telefono,
-        admin: admin
-        
-    }).then(usuario => {
-        res.send(`${usuario.nombre}, you have been added succesfully`);
+    let errorEmail = funcionesBasicas.validar("email",email);
+  
+    if(errorEmail === true){
+        res.send("Ha habido un error ingresando los datos");
+    }
 
+    let array = [nombre,dni,email,telefono];
+
+    for(let campo of array){
+        if(campo === ""){
+            res.send("No has rellenado todos los campos");
+        }
+    }
+
+    try {
+
+    await Usuario.findOne({
+        where : {dni : dni},
+        where : {email: email},
+        where : {telefono: telefono}
+
+    }).then(campo => {
+        if(campo){
+            res.send('Usuario ya existe')
+        }else{
+            Usuario.create({
+                nombre: nombre,
+                dni: dni,
+                password: password,
+                email: email,
+                telefono: telefono,
+                admin: admin
+            })
+        }
+        res.send('Usuario creado');
     }).catch((error) => {
         res.send(error);
     });
-
+    } catch (error) {
+    res.send(error);
+    }
 };
 
 UsuariosController.putModificarPerfil = async (req, res) => {
-    let identidad = req.body.id
+    let identidad = req.params.id
     let nombre = req.body.nombre;
     let email = req.body.email;
     let telefono = req.body.telefono;
@@ -77,7 +103,6 @@ UsuariosController.putModificarPerfil = async (req, res) => {
         if(!perfilUsuario){
             res.send('Ese Usuario no existe')
         }else{
-            console.log('hola');
             perfilUsuario.update({
                 nombre : nombre,
                 email : email,
