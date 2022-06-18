@@ -55,8 +55,8 @@ AlquilersController.postAlquilerRegister = async (req, res) => {
         fecha_alquiler: fecha_alquiler,
         fecha_devolucion: fecha_devolucion
 
-    }).then(alquiler=> {
-        res.send(`${alquiler.precio}, you have been added succesfully`);
+    }).then(()=> {
+        res.send(`Pelicula alquilada`);
 
     }).catch((error) => {
         res.send(error);

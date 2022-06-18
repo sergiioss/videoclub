@@ -92,7 +92,33 @@ PeliculasController.postPeliculaRegister = async (req, res) => {
     let duracion = req.body.duracion;
     let edad_minima = req.body.edad_minima;
     let genero = req.body.genero;
-    
+
+
+    try {
+
+        await Pelicula.findOne({
+            where : {titulo : titulo}
+
+        }).then(campo => {
+            if(campo){
+                res.send(`La Pelicula, ${campo.titulo} ya existe`)
+            }else{
+                Pelicula.create({
+                    titulo: titulo,
+                    duracion: duracion,
+                    edad_minima: edad_minima,
+                    genero: genero
+                })
+                res.send(`Pelicula añadida correctamente    `);
+            }
+        }).catch((error) => {
+            res.send(error);
+        });
+        } catch (error) {
+        res.send(error);
+        }
+};
+    /* 
     Pelicula.create({
         titulo: titulo,
         duracion: duracion,
@@ -105,7 +131,7 @@ PeliculasController.postPeliculaRegister = async (req, res) => {
     }).catch((error) => {
         res.send(error);
     });
-};
+}; */
 
 //Export
 module.exports = PeliculasController;
