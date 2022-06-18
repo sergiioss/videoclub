@@ -1,4 +1,5 @@
 <p align="center">
+![image](https://user-images.githubusercontent.com/101824101/174446655-3034805f-afeb-4fc4-8ec4-26aa2fb11293.png)
 </p>
 <h2 align="center">Videoclub</h2>
 <p>Se realiza un pequeño CRUD de un videoclub en sequelize. Hay 3 tablas y las relaciones son muchos a muchos.<br>
