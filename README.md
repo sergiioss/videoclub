@@ -24,7 +24,4 @@ El concepto del proyecto se basa en el Modelo Vista Controlador (Mvc)<br>
 - <h5>get(alquileres/veralquiler/:id)</h5>Este endpoint ve el alquiler de una persona haciendo un salto en las tablas y mostrando los campos Nombre Pelicula, Nombre Cliente, Fecha Alquiler y Fecha Devolucion.<br>
 - <h5>post(alquileres/addalquiler)</h5>Este endpoint crea un alquiler pero necesita token.<br>
 </p>
-<<<<<<< HEAD
-=======
-<h5><p>Proyecto realizado en HTML, CSS y Javascript.</p></h5>
->>>>>>> e021c31cf242dd70eae69de9dcad8bd7908e1419
+
