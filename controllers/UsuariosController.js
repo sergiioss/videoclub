@@ -47,12 +47,6 @@ UsuariosController.postUsuarioRegister = async (req, res) => {
     let telefono = req.body.telefono;
     let admin = req.body.admin;
 
-    let errorEmail = funcionesBasicas.validar("email",email);
-  
-    if(errorEmail === true){
-        res.send("Ha habido un error ingresando los datos");
-    }
-
     let array = [nombre,dni,email,telefono];
 
     for(let campo of array){
