@@ -1,6 +1,5 @@
 
 const { Usuario } = require('../models/index');
-const funcionesBasicas = require('../funcionesBasicas');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 let authConfig = require('../config/auth');

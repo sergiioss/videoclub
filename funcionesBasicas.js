@@ -1,4 +1,4 @@
-const validar = (tipo,contenido) => {
+/* const validar = (tipo,contenido) => {
 
     switch(tipo){
 
@@ -19,4 +19,4 @@ const validar = (tipo,contenido) => {
 
 };
 
-exports.validar = validar;
+exports.validar = validar; */
