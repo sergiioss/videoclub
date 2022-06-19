@@ -118,20 +118,6 @@ PeliculasController.postPeliculaRegister = async (req, res) => {
         res.send(error);
         }
 };
-    /* 
-    Pelicula.create({
-        titulo: titulo,
-        duracion: duracion,
-        edad_minima: edad_minima,
-        genero: genero
-
-    }).then(pelicula => {
-        res.send(`${pelicula.titulo}, you have been added succesfully`);
-
-    }).catch((error) => {
-        res.send(error);
-    });
-}; */
 
 //Export
 module.exports = PeliculasController;
