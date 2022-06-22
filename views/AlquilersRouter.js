@@ -8,7 +8,7 @@ const AlquilersController = require('../controllers/AlquilersController');
 
 //Endpoint-function links
 router.get('/', isAdmin, AlquilersController.getAlquileres);
-router.get('/veralquiler/:id', AlquilersController.getAlquilerId)
+router.get('/veralquiler/:id', AlquilersController.getAlquilerId);
 router.post('/addalquiler', auth, AlquilersController.postAlquilerRegister);
 
 

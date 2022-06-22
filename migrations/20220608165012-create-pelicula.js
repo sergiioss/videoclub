@@ -11,6 +11,12 @@ module.exports = {
       titulo: {
         type: Sequelize.STRING
       },
+      director: {
+        type: Sequelize.STRING
+      },
+      sinopsis:{
+        type: Sequelize.STRING
+      },
       duracion: {
         type: Sequelize.INTEGER
       },
@@ -19,6 +25,12 @@ module.exports = {
       },
       genero: {
         type: Sequelize.STRING
+      },
+      rating: {
+        type: Sequelize.INTEGER
+      },
+      preciop: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

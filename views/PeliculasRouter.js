@@ -13,6 +13,8 @@ router.get('/edadpeliculas/:edad_minima', PeliculasController.getEdadPeliculas);
 router.post('/addpelicula', auth, PeliculasController.postPeliculaRegister);
 router.post('/letrapelicula', PeliculasController.postLetraPeliculas);
 router.delete('/borrarpelicula/:id', isAdmin, PeliculasController.borrar);
+router.get('/toprated', PeliculasController.getTopRated);
+
 
 
 //Export

@@ -18,7 +18,7 @@ AlquilersController.getAlquilerId = async (req, res) => {
     
     let id = req.params.id;
 
-    let infoAlquiler = `SELECT usuarios.nombre AS NombreCliente, peliculas.titulo AS NombrePelicula, alquilers.fecha_alquiler AS FechaAlquiler, alquilers.fecha_devolucion AS FechaDevolucion
+    let infoAlquiler = `SELECT usuarios.nombre AS NombreCliente, peliculas.titulo AS NombrePelicula, peliculas.preciop AS PrecioPelicula, alquilers.fecha_alquiler AS FechaAlquiler, alquilers.fecha_devolucion AS FechaDevolucion
     FROM usuarios
     INNER JOIN alquilers ON alquilers.usuarioId = usuarios.id
     INNER JOIN peliculas ON peliculas.id = alquilers.peliculaid
