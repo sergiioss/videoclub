@@ -13,6 +13,22 @@ PeliculasController.getPeliculas = (req, res) => {
     });
 };
 
+PeliculasController.getFiltroDirector = async (req, res) => {
+    let directorPelicula = req.params.director
+
+    let consulta = `SELECT titulo, duracion, director FROM Peliculas WHERE director LIKE '%${directorPelicula}%'`;
+
+    let resultado = await Pelicula.sequelize.query(consulta, {
+        type: Pelicula.sequelize.QueryTypes.SELECT
+    });
+
+    if(resultado != 0){
+        res.send(resultado);
+    }else {
+        res.send("No existe ese Director");
+    };
+};
+
 PeliculasController.getFiltroGenero = (req, res) => {
     let generoPelicula = req.params.genero
 

@@ -10,6 +10,7 @@ const isAdmin = require('../middlewares/isAdmin');
 router.get('/', PeliculasController.getPeliculas);
 router.get('/filtrar/:genero', PeliculasController.getFiltroGenero);
 router.get('/edadpeliculas/:edad_minima', PeliculasController.getEdadPeliculas);
+router.get('/director/:director', PeliculasController.getFiltroDirector);
 router.post('/addpelicula', auth, PeliculasController.postPeliculaRegister);
 router.post('/letrapelicula', PeliculasController.postLetraPeliculas);
 router.delete('/borrarpelicula/:id', isAdmin, PeliculasController.borrar);
