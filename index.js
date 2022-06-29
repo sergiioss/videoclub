@@ -3,9 +3,16 @@ const express = require('express');
 
 const app = express();
 
-const port = 3000;
-
+const port = process.env.port || 3000; //Configuramos puerto heroku se añade el process.env.port que es el puerot que pondra heroku en caso de que no tenga utilizara el 3000 definido por nosotros.
 const db = require('./db/db');
+
+//Config Cors Options
+var corsOptions = {
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204
+};
 
 const router = require('./router.js');
 // Middleware
