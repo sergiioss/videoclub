@@ -22,7 +22,7 @@ app.use(express.json()) //Permite decodificar en Json
 app.use(router);
 
 db.then(()=>{
-    app.listen(PORT, ()=> {console.log('servidor levantado en el puerto', port)});
+    app.listen(PORT, ()=> {console.log('servidor levantado en el puerto', PORT)});
 
 }).catch((err)=> console.log(err.message))
 
