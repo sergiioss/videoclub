@@ -18,7 +18,8 @@ const router = require('./router.js');
 // Middleware
 
 app.use(express.json()) //Permite decodificar en Json
-
+//Get para saber cuando esta la aplicacion subida correctamente
+app.get('/', (req, res) => {res.send('Bienvenidos al videoclub');});
 app.use(router);
 
 db.then(()=>{
