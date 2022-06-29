@@ -16,7 +16,7 @@ PeliculasController.getPeliculas = (req, res) => {
 PeliculasController.getFiltroDirector = async (req, res) => {
     let directorPelicula = req.params.director
 
-    let consulta = `SELECT titulo, duracion, director FROM Peliculas WHERE director LIKE '%${directorPelicula}%'`;
+    let consulta = `SELECT titulo, duracion, director FROM Peliculas WHERE director LIKE '${directorPelicula}%'`;
 
     let resultado = await Pelicula.sequelize.query(consulta, {
         type: Pelicula.sequelize.QueryTypes.SELECT
