@@ -32,6 +32,9 @@ module.exports = {
       preciop: {
         type: Sequelize.INTEGER
       },
+      url: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

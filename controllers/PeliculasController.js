@@ -129,6 +129,7 @@ PeliculasController.postPeliculaRegister = async (req, res) => {
     let sinopsis = req.body.sinopsis;
     let rating = req.body.rating;
     let preciop = req.body.preciop;
+    let url = req.body.url;
 
 
     try {
@@ -148,7 +149,8 @@ PeliculasController.postPeliculaRegister = async (req, res) => {
                     director: director,
                     sinopsis: sinopsis,
                     rating: rating,
-                    preciop: preciop
+                    preciop: preciop,
+                    url: url
                 })
                 res.send(`Pelicula añadida correctamente    `);
             }
