@@ -3,7 +3,7 @@ const express = require('express');
 
 const app = express();
 
-const PORT = process.env.PORT || 3000; //Configuramos puerto heroku se añade el process.env.port que es el puerot que pondra heroku en caso de que no tenga utilizara el 3000 definido por nosotros.
+const PORT = process.env.PORT || 4000; //Configuramos puerto heroku se añade el process.env.port que es el puerot que pondra heroku en caso de que no tenga utilizara el 3000 definido por nosotros.
 const db = require('./db/db');
 
 //Config Cors Options
