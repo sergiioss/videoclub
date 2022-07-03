@@ -86,7 +86,7 @@ PeliculasController.postLetraPeliculas = async (req, res) => {
 
     let letraPelicula = req.body.titulo;
 
-    let consulta = `SELECT titulo, duracion, url, rating, sinopsis genero FROM Peliculas WHERE titulo LIKE '%${letraPelicula}%'`;
+    let consulta = `SELECT titulo, duracion, url, rating, sinopsis, genero FROM Peliculas WHERE titulo LIKE '%${letraPelicula}%'`;
 
     let resultado = await Pelicula.sequelize.query(consulta, {
         type: Pelicula.sequelize.QueryTypes.SELECT
