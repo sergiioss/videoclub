@@ -48,7 +48,7 @@ PeliculasController.getFiltroGenero = (req, res) => {
 
 PeliculasController.getTopRated= async (req, res) => {
 
-    let pelisEdad = `SELECT * FROM videoclub.Peliculas WHERE rating <= 10 ORDER BY rating DESC;`;
+    let pelisEdad = `SELECT * FROM heroku_9033fa432e76fbc.Peliculas WHERE rating <= 10 ORDER BY rating DESC;`;
 
     let resultado = await Pelicula.sequelize.query(pelisEdad, {
         type: Pelicula.sequelize.QueryTypes.SELECT
@@ -67,7 +67,7 @@ PeliculasController.getEdadPeliculas = async (req, res) => {
     
     let mayorEdad = req.params.edad_minima;
 
-    let pelisEdad = `SELECT * FROM videoclub.Peliculas WHERE (edad_minima <= ${mayorEdad});`;
+    let pelisEdad = `SELECT * FROM heroku_9033fa432e76fbc.Peliculas WHERE (edad_minima <= ${mayorEdad});`;
 
     let resultado = await Pelicula.sequelize.query(pelisEdad, {
         type: Pelicula.sequelize.QueryTypes.SELECT
